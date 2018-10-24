@@ -1,0 +1,3 @@
+'.source.spl':
+  'editor':
+    'commentStart': '// '
