@@ -6,7 +6,7 @@
     "language",
     "grammar"
   ],
-  "repository": "https://github.ibm.com/IBMStreams/language-ibmstreams-spl",
+  "repository": "https://github.com/IBMStreams/language-ibmstreams-spl",
   "engines": {
     "atom": ">=1.0.0 <2.0.0"
   }
