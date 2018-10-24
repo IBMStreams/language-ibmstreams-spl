@@ -1,0 +1,13 @@
+{
+  "name": "language-ibmstreams-spl",
+  "version": "0.0.0",
+  "description": "IBM Streams SPL Language Grammar",
+  "keywords": [
+    "language",
+    "grammar"
+  ],
+  "repository": "https://github.ibm.com/IBMStreams/language-ibmstreams-spl",
+  "engines": {
+    "atom": ">=1.0.0 <2.0.0"
+  }
+}
