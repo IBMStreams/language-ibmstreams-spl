@@ -1128,112 +1128,37 @@ repository:
 	annotations:
 		patterns: [
 			{
-				begin: "@"
+				begin: "(@\\b(?:catch|consistent|eventTime|parallel|spl_note|spl__[a-z|A-Z]+|threading|view)\\b)"
 				beginCaptures:
 					"0":
-						name: "meta.annotations.spl"
+						name: "keyword.control.spl"
 				end: "\\)"
 				endCaptures:
 					"0":
-						name: "punctuation.bracket.curly.spl"
+						name: "punctuation.annotation.end.bracket.round.spl"
+				name: "meta.annotations.spl"
 				patterns: [
 					{
-						match: "autonomous"
-						name: "keyword.control.annotation.consistent.spl"
-					}
-					{
-						begin: "catch"
-						name: "keyword.control.annotation.catch.spl"
-						patterns: [
-							include: "annotationAttributes"
-						]
-					}
-					{
-						match: "consistent"
-						name: "keyword.control.annotation.consistent.spl"
-						patterns: [
-							include: "annotationAttributes"
-						]
-					}
-					{
-						match: "eventTime"
-						name: "keyword.control.annotation.eventTime.spl"
-						patterns: [
-							include: "annotationAttributes"
-						]
-					}
-					{	
-						begin: "parallel"
-						end: "\\)"
-						endCaptures:
+						begin: "\\("
+						beginCaptures:
 							"0":
-								name: "keyword.control.annotation.parallel.spl"
-						name: "keyword.control.annotation.parallel.spl"
+								name: "punctuation.annotation.begin.bracket.round.spl"
+						end: "(?=\\))"
+						contentName: "meta.annotation-body.spl"
 						patterns: [
-							include: "annotationAttributes"
+							{
+								include: "#code"
+							}
 						]
 					}
-					{
-						match: "spl_note"
-						name: "keyword.control.annotation.splnote.spl"
-						patterns: [
-							include: "annotationAttributes"
-						]
-					}
-					{
-						match: "spl_category"
-						name: "keyword.control.annotation.splcategory.spl"
-						patterns: [
-							include: "annotationAttributes"
-						]
-					}
-					{
-						match: "spl_tag"
-						name: "keyword.control.annotation.spltag.spl"
-						patterns: [
-							include: "annotationAttributes"
-						]
-					}
-					{
-						match: "spl__[a-z|A-Z]+"
-						name: "keyword.control.annotation.splgeneric.spl"
-						patterns: [
-							include: "annotationAttributes"
-						]
-					}
-					{
-						match: "threading"
-						name: "keyword.control.annotation.threading.spl"
-						patterns: [
-							include: "annotationAttributes"
-						]
-					}
-					{
-						match: "view"
-						name: "keyword.control.annotation.view.spl"
-						patterns: [
-							include: "annotationAttributes"
-						]
-					}
-				]
-			}
-		]
-	annotationAttributes:
-		patterns: [
-			{
-				begin: "\\("
-				beginCaptures:
-					"0":
-						name: "punctuation.annotation.begin.bracket.round.spl"
-				end: "(?=\\))"
-				contentName: "meta.annotation-body.spl"
-				patterns: [
 					{
 						include: "#code"
 					}
 				]
 			}
 			{
-				include: "#code"
+				match: "@autonomous"
+				name: "meta.annotations.spl"
 			}
 		]
+	
